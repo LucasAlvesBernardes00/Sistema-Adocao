@@ -30,3 +30,18 @@ pedidoAdotanteIDFK int not null,
 foreign key (pedidoAnimalIDFK) references animal(animalID),
 foreign key (pedidoAdotanteIDFK) references adotante(adotanteID)
 );
+
+create table usuario(
+usuarioID int auto_increment primary key not null,
+usuarioNome varchar(100) not null,
+usuarioEmail varchar(100) not null,
+usuarioSenha varchar(100) not null,
+usuarioAcesso varchar(300) not null
+);
+create table historicoMedico(
+historicoMedicoID int auto_increment primary key not null,
+historicoMedicoAnimalIDFK int not null,
+historicoMedicoData date not null,
+historicoMedicoRealizacao enum('Consulta','Vacinação','Castração'),
+foreign key (historicoMedicoAnimalIDFK) references animal(animalID)
+);
